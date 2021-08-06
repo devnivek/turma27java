@@ -28,13 +28,14 @@ public class Produtos {
 	private double preco;
 	
 	private boolean disponivel;
-	
 											//ManyToOne criando uma chave estrangeira (categoria_id)
 	@ManyToOne 								//O ultimo nome da anotação refere-se a quantidade de dados que eu estou recebendo
 	@JsonIgnoreProperties("produtos")
 	private Categoria categoria; 			//O tipo dado deve ser o mesmo nome da classe que eu quero relacionar 
 
-											//Não esquecer dos getters and setters da categoria
+	@ManyToOne								//Não esquecer dos getters and setters da categoria
+	@JsonIgnoreProperties("produtos")
+	private Usuario usuario;
 	
 	public long getId() {
 		return id;
@@ -74,6 +75,14 @@ public class Produtos {
 
 	public void setCategoria(Categoria categoria) {
 		this.categoria = categoria;
+	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 	
 	
